@@ -45,7 +45,6 @@ body {
     }
     
     &__box {
-
         display: flex;
         flex-direction: column;
         width: 80%;
@@ -54,17 +53,16 @@ body {
         background-color: white;
         padding: 10px;
         border-radius: 15px;
+        color: darkslategray;
 
         h1 {
             font-size: 10px;
-            color: darkslategray;
             font-weight: bold;
         }
 
         &--mine {
             margin-left: auto;
             background-color: greenyellow;
-            justify-self: end;
         }
     }
 

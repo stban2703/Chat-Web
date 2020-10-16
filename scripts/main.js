@@ -52,23 +52,13 @@ db.collection('messages').get() // pide todos los documentos de la colección
 console.log(form)
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  
-  const newMessage = {
+
+  const usermessage = {
     username: form.username.value,
     message: form.message.value
   }
 
-  const messageBox = `
-    <div class="chat__box chat__box--mine">
-      <h1> ${newMessage.username} </h1>
-      <p> ${newMessage.message}</p>
-    </div>
-    `
-
-  chatBody.innerHTML = messageBox;
-
-
-  db.collection('messages').add(newMessage) // cree un nuevo elemento en la colección
+  db.collection('messages').add(usermessage) // cree un nuevo elemento en la colección
     .then(function (docRef) {
       console.log("Document written with ID: ", docRef.id);
     })

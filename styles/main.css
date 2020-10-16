@@ -307,19 +307,17 @@ body {
   background-color: white;
   padding: 10px;
   border-radius: 15px;
+  color: darkslategray;
 }
 
 .chat__box h1 {
   font-size: 10px;
-  color: darkslategray;
   font-weight: bold;
 }
 
 .chat__box--mine {
   margin-left: auto;
   background-color: greenyellow;
-  -ms-grid-column-align: end;
-      justify-self: end;
 }
 
 .chat__controls {
