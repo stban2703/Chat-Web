@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &__body {
+        background-color: aquamarine;
+        width: 100%;
+        max-width: 30vw;
+        height: 100vh;
+        padding: 0 10px;
+    }
+
+    &__messages {
+        height: 95%;
+        overflow: scroll;
+    }
+    &__controls {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 5%;
+        bottom: 10px;
+    }
+    &__box {
+        width: 80%;
+        box-sizing: content-box;
+        background-color: white;
+        padding: 10px;
+        border-radius: 15px;
+
+        &--mine {
+            margin-left: auto;
+            background-color: greenyellow;
+            justify-self: end;
+        }
+    }
+
+    &__input {
+        width: 100%;
+    }
+}
