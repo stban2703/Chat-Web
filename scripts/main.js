@@ -17,7 +17,6 @@ const form = document.querySelector(".chat__controls");
 const chatBody = document.querySelector('.chat__body');
 const chatMessages = document.querySelector('.chat__messages');
 
-
 function renderMessages(list) {
   chatMessages.innerHTML = "";
 
@@ -34,7 +33,8 @@ function renderMessages(list) {
 
 }
 
-db.collection('messages').get() // pide todos los documentos de la colección
+function getMessages() {
+  db.collection('messages').get() // pide todos los documentos de la colección
   .then((querySnapshot) => {
 
     const objects = [];
@@ -47,9 +47,11 @@ db.collection('messages').get() // pide todos los documentos de la colección
 
     renderMessages(objects);
   });
+}
+
+getMessages();
 
 
-console.log(form)
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -57,21 +59,13 @@ form.addEventListener('submit', function (event) {
     username: form.username.value,
     message: form.message.value
   }
-  const newMessage = document.createElement('div');
-  newMessage.classList.add('chat__box');
-  newMessage.classList.add('chat__box--mine');
 
-  db.collection('messages').add(usermessage) // cree un nuevo elemento en la colección
+  db.collection("messages").add(usermessage) // cree un nuevo elemento en la colección
     .then(function (docRef) {
       console.log("Document written with ID: ", docRef.id);
+      getMessages();
     })
     .catch(function (error) {
       console.error("Error adding document: ", error);
     });
-
-    newMessage.innerHTML = `
-    <h1> ${usermessage.username} </h1>
-      <p> ${usermessage.message}</p>
-    `
-    chatMessages.appendChild(newMessage);
 })
