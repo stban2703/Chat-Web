@@ -19,7 +19,7 @@ const chatMessages = document.querySelector('.chat__messages');
 
 
 function renderMessages(list) {
-  chatBody.innerHTML = "";
+  chatMessages.innerHTML = "";
 
   list.forEach(function (elem, i) {
     const dbMessage = document.createElement('div');
