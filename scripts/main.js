@@ -22,13 +22,14 @@ function renderMessages(list) {
   chatMessages.innerHTML = "";
 
   list.forEach(function (elem, i) {
-    const dbMessage = document.createElement('div');
-    dbMessage.classList.add('chat__box');
-    
-    dbMessage.innerHTML = `
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('chat__box');
+
+    newMessage.innerHTML = `
+    <h1> ${elem.username} </h1>
       <p> ${elem.message}</p>
     `
-    chatMessages.appendChild(dbMessage);
+    chatMessages.appendChild(newMessage);
   });
 
 }
@@ -51,14 +52,16 @@ db.collection('messages').get() // pide todos los documentos de la colección
 console.log(form)
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-
+  
   const newMessage = {
+    username: form.username.value,
     message: form.message.value
   }
 
   const messageBox = `
     <div class="chat__box chat__box--mine">
-      <p class="product__price"> ${newMessage.message}</p>
+      <h1> ${newMessage.username} </h1>
+      <p> ${newMessage.message}</p>
     </div>
     `
 
