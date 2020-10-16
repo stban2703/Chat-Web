@@ -13,6 +13,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const messageRef = db.collection("messages");
 const form = document.querySelector(".chat__controls");
 const chatBody = document.querySelector('.chat__body');
 const chatMessages = document.querySelector('.chat__messages');
@@ -34,8 +35,7 @@ function renderMessages(list) {
 }
 
 function getMessages() {
-  db.collection('messages').get() // pide todos los documentos de la colección
-  .then((querySnapshot) => {
+  messageRef.onSnapshot(function (querySnapshot) {
 
     const objects = [];
     querySnapshot.forEach((doc) => {
@@ -44,7 +44,6 @@ function getMessages() {
       objects.push(obj);
       console.log(`${doc.id} => ${doc.data()}`);
     });
-
     renderMessages(objects);
   });
 }
@@ -60,7 +59,7 @@ form.addEventListener('submit', function (event) {
     message: form.message.value
   }
 
-  db.collection("messages").add(usermessage) // cree un nuevo elemento en la colección
+  messageRef.add(usermessage)
     .then(function (docRef) {
       console.log("Document written with ID: ", docRef.id);
       getMessages();
