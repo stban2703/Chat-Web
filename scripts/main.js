@@ -57,6 +57,9 @@ form.addEventListener('submit', function (event) {
     username: form.username.value,
     message: form.message.value
   }
+  const newMessage = document.createElement('div');
+  newMessage.classList.add('chat__box');
+  newMessage.classList.add('chat__box--mine');
 
   db.collection('messages').add(usermessage) // cree un nuevo elemento en la colección
     .then(function (docRef) {
@@ -65,4 +68,10 @@ form.addEventListener('submit', function (event) {
     .catch(function (error) {
       console.error("Error adding document: ", error);
     });
+
+    newMessage.innerHTML = `
+    <h1> ${usermessage.username} </h1>
+      <p> ${usermessage.message}</p>
+    `
+    chatMessages.appendChild(newMessage);
 })
