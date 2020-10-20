@@ -17,7 +17,6 @@ const messageRef = db.collection("messages");
 const form = document.querySelector(".chat__controls");
 const chatBody = document.querySelector('.chat__body');
 const chatMessages = document.querySelector('.chat__messages');
-let messageStorage = window.localStorage;
 let myUser;
 
 function renderMessages(list) {
@@ -48,7 +47,6 @@ function getMessages() {
       const obj = doc.data();
       obj.id = doc.id;
       objects.push(obj);
-      // console.log(`${doc.id} => ${doc.data()}`);
     });
 
     let arraySorted = objects.sort(function(a, b) {
