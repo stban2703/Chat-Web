@@ -243,7 +243,7 @@ input[type=button] {
 }
 
 html {
-  font-family: 'Nunito';
+  font-family: "Nunito";
 }
 
 body {
@@ -267,14 +267,13 @@ body {
   position: relative;
   background-color: aquamarine;
   width: 100%;
+  height: 100%;
   max-width: 400px;
-  height: 100vh;
 }
 
 .chat__messages {
   width: 100%;
-  height: 95vh;
-  padding: 5px 0;
+  height: 85vh;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -307,12 +306,13 @@ body {
   background-color: white;
   padding: 10px;
   border-radius: 15px;
-  color: darkslategray;
+  color: #9c9c9c;
 }
 
 .chat__box h1 {
   font-size: 10px;
   font-weight: bold;
+  color: darkslategrey;
 }
 
 .chat__box--mine {
@@ -321,7 +321,6 @@ body {
 }
 
 .chat__controls {
-  position: absolute;
   bottom: 0;
   padding: 5px;
   background-color: darkgreen;
@@ -335,7 +334,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 80px;
+  overflow: auto;
 }
 
 .chat__input-content {
@@ -354,10 +353,9 @@ body {
 .chat__input {
   margin: 2px 0;
   width: 100%;
-  height: 100%;
   border: none;
   border-radius: 15px;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 
 .chat__input:focus {

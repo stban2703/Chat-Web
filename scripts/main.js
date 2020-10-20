@@ -35,6 +35,8 @@ function renderMessages(list) {
     if(elem.username == myUser) {
         newMessage.classList.add('chat__box--mine');
     }
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   });
 
 }
