@@ -17,6 +17,8 @@ const messageRef = db.collection("messages");
 const form = document.querySelector(".chat__controls");
 const chatBody = document.querySelector('.chat__body');
 const chatMessages = document.querySelector('.chat__messages');
+let messageStorage = window.localStorage;
+let myUser;
 
 function renderMessages(list) {
   chatMessages.innerHTML = "";
@@ -30,6 +32,10 @@ function renderMessages(list) {
       <p> ${elem.message}</p>
     `
     chatMessages.appendChild(newMessage);
+
+    if(elem.username == myUser) {
+        newMessage.classList.add('chat__box--mine');
+    }
   });
 
 }
@@ -42,22 +48,28 @@ function getMessages() {
       const obj = doc.data();
       obj.id = doc.id;
       objects.push(obj);
-      console.log(`${doc.id} => ${doc.data()}`);
+      // console.log(`${doc.id} => ${doc.data()}`);
     });
-    renderMessages(objects);
+
+    let arraySorted = objects.sort(function(a, b) {
+      return a.time - b.time;
+    });
+    renderMessages(arraySorted);
   });
 }
 
 getMessages();
-
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const usermessage = {
     username: form.username.value,
-    message: form.message.value
+    message: form.message.value,
+    time: Date.now()
   }
+
+  myUser = usermessage.username;
 
   messageRef.add(usermessage)
     .then(function (docRef) {
