@@ -1,0 +1,108 @@
+.chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px;
+        background-color: darkgreen;
+
+    }
+
+    &__body {
+        position: relative;
+        background-color: aquamarine;
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+    }
+
+    &__messages {
+        width: 100%;
+        height: 85vh;
+        overflow: scroll;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            background-color: white;
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: darkgreen;
+        }
+    }
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 5px;
+        box-sizing: column;
+        background-color: white;
+        padding: 10px;
+        border-radius: 15px;
+        color: rgb(156, 156, 156);
+
+        h1 {
+            font-size: 10px;
+            font-weight: bold;
+            color: darkslategrey;
+        }
+
+        &--mine {
+            margin-left: auto;
+            background-color: greenyellow;
+            color: black;
+
+            h1 {
+                color: black;
+            }
+        }
+    }
+
+    &__controls {
+        bottom: 0;
+        padding: 5px;
+        background-color: darkgreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow: auto;
+    }
+
+    &__input-content {
+        margin: 0 2px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        margin: 2px 0;
+        width: 100%;
+        border: none;
+        border-radius: 15px;
+        padding: 5px 10px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__btn {
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        color: rgb(66, 66, 66);
+        font-size: 15px;
+    }
+}

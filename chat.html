@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <article class="chat">
+        <section class="chat__body">
+            <header class="chat__header">
+                <button class="chat__logOut chat__btn">Cerrar sesión</button>
+            </header>
+            <div class="chat__messages">
+                <h2 class="loader">Cargando...</h1>
+            </div>
+            <form class="chat__controls">
+                <div class="chat__input-content">
+                    <input type="text" name="message" placeholder="Escribe un mensaje" class="chat__input" required>
+                </div>
+                <button class="chat__btn">Enviar</button>
+            </form>
+        </section>
+    </article>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="./scripts/firebase.js"></script>
+    <script src="./scripts/auth.js"></script>
+    <script src="./scripts/chat.js"></script>
+</body>
+
+</html>

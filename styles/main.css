@@ -242,15 +242,6 @@ input[type=button] {
   zoom: 1;
 }
 
-html {
-  font-family: "Nunito";
-}
-
-body {
-  width: 100%;
-  height: 100%;
-}
-
 .chat {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -261,6 +252,17 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.chat__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 5px;
+  background-color: darkgreen;
 }
 
 .chat__body {
@@ -318,6 +320,11 @@ body {
 .chat__box--mine {
   margin-left: auto;
   background-color: greenyellow;
+  color: black;
+}
+
+.chat__box--mine h1 {
+  color: black;
 }
 
 .chat__controls {
@@ -368,5 +375,74 @@ body {
   padding: 10px;
   color: #424242;
   font-size: 15px;
+}
+
+.form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form__container {
+  background-color: aquamarine;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  margin: 10px;
+}
+
+.form__title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.form input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.form button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: #424242;
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+html {
+  font-family: "Nunito";
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

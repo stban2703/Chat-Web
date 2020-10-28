@@ -4,28 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
-    <article class="chat">
-        <section class="chat__body">
-            <div class="chat__messages">
+    <h2 class="loader hidden">Cargando..</h2>
+    <form class="form form--register">
+        <article class="form__container">
+            <h1 class="form__title">Registrarse</h1>
 
-            </div>
-            <form class="chat__controls">
-                <div class="chat__input-content">
-                    <input type="text" name="username" placeholder="Escribe tu nombre aquí" class="chat__input" required>
-                    <input type="text" name="message" placeholder="Escribe un mensaje" class="chat__input" required>
-                </div>
-                <button class="chat__btn">Enviar</button>
-            </form>
-        </section>
+            <label for="userEmail">Correo</label>
+            <input type="email" name="userEmail" required>
+
+            <label for="userName">Nombre de usuario</label>
+            <input type="text" name="userName" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" required>
+
+            <button>Registrarse</button>
+        </article>
+    </form>
+
+    <form class="form form--login">
+        <article class="form__container">
+            <h1 class="form__title">Iniciar sesión</h1>
+
+            <label for="userEmail">Correo</label>
+            <input type="email" name="userEmail" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" required>
+
+            <button>Iniciar sesión</button>
+        </article>
+    </form>
     </article>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="./scripts/firebase.js"></script>
+    <script src="./scripts/register.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/auth.js"></script>
+
 </body>
 
 </html>

@@ -1,23 +1,7 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCGriO_mObi63NKV51VP4CghnyHpC2Rfqk",
-  authDomain: "chat-web-8d1fc.firebaseapp.com",
-  databaseURL: "https://chat-web-8d1fc.firebaseio.com",
-  projectId: "chat-web-8d1fc",
-  storageBucket: "chat-web-8d1fc.appspot.com",
-  messagingSenderId: "256511006078",
-  appId: "1:256511006078:web:0f838a812c01a64d5e8f2f",
-  measurementId: "G-7HTRCWT0HF"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
 const messageRef = db.collection("messages");
 const form = document.querySelector(".chat__controls");
 const chatBody = document.querySelector('.chat__body');
 const chatMessages = document.querySelector('.chat__messages');
-let myUser;
 
 function renderMessages(list) {
   chatMessages.innerHTML = "";
@@ -30,11 +14,11 @@ function renderMessages(list) {
     <h1> ${elem.username} </h1>
       <p> ${elem.message}</p>
     `
-    chatMessages.appendChild(newMessage);
 
-    if(elem.username == myUser) {
+    if(elem.username == currentUser) {
         newMessage.classList.add('chat__box--mine');
     }
+    chatMessages.appendChild(newMessage);
 
     chatMessages.scrollTop = chatMessages.scrollHeight;
   });
@@ -58,18 +42,16 @@ function getMessages() {
   });
 }
 
-getMessages();
+//getMessages();
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const usermessage = {
-    username: form.username.value,
+    username: currentUser,
     message: form.message.value,
     time: Date.now()
   }
-
-  myUser = usermessage.username;
 
   messageRef.add(usermessage)
     .then(function (docRef) {
@@ -79,4 +61,11 @@ form.addEventListener('submit', function (event) {
     .catch(function (error) {
       console.error("Error adding document: ", error);
     });
-})
+});
+
+const logOutBtn = document.querySelector('.chat__logOut');
+logOutBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    firebase.auth().signOut();
+    window.location.href = "index.html"
+});
