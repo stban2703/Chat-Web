@@ -5,8 +5,9 @@
     align-items: center;
 
     &__container {
-        background-color: aquamarine;
-        border-radius: 15px;
+        background-color: $bg-color;
+        color: $text-color;
+        border-radius: 10px;
         width: 100%;
         max-width: 400px;
         display: flex;
@@ -16,6 +17,7 @@
     }
 
     &__title {
+        color: $main-color;
         font-weight: bold;
         margin: 10px 0;
     }
@@ -23,21 +25,13 @@
     input {
         width: 100%;
         margin-bottom: 10px;
-        border: none;
-        border-radius: 15px;
+        border: 1px solid #CFD9EB !important;
+        border-radius: 5px;
         padding: 5px 10px;
 
         &:focus {
+            border: 1px solid $main-color !important;
             outline: none;
         }
-    }
-
-    button {
-        border: none;
-        border-radius: 10px;
-        padding: 10px;
-        color: rgb(66, 66, 66);
-        font-size: 15px;
-        margin: 10px 0;
     }
 }
